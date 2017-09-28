@@ -1,8 +1,8 @@
 {
-  "name": "scramble",
-  "version": "0.0.0",
-  "description": "Hello Expo!",
-  "author": null,
+  "name": "Scramble",
+  "version": "1.0.0",
+  "description": "We're not in Kansas anymore.",
+  "author": "Thomas Nagengast",
   "private": true,
   "main": "node_modules/expo/AppEntry.js",
   "dependencies": {

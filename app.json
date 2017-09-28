@@ -1,16 +1,16 @@
 {
   "expo": {
-    "name": "scramble",
-    "description": "An empty new project",
+    "name": "Scramble",
+    "description": "We're not in Kansas anymore",
     "slug": "scramble",
     "privacy": "public",
     "sdkVersion": "21.0.0",
     "version": "1.0.0",
     "orientation": "portrait",
     "primaryColor": "#cccccc",
-    "icon": "./assets/icons/app-icon.png",
+    "icon": "./assets/icons/project-icon.png",
     "loading": {
-      "icon": "./assets/icons/loading-icon.png"
+      "icon": "./assets/icons/project-icon.png"
     },
     "packagerOpts": {
       "assetExts": ["ttf", "mp4"]
