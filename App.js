@@ -1,23 +1,35 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import DeviceInfo from 'react-native-device-info';
 import { Card, Header, Button, List, ListItem } from 'react-native-elements'
-import Deck from './src/Deck';
+import axios from 'axios';
+import Deck from './src/components/Deck';
+import MapView from './src/components/MapView';
+import AuthScreen from './src/screens/AuthScreen';
+import SearchScreen from './src/screens/SearchScreen';
+import SettingsScreen from './src/screens/SettingsScreen';
+import WelcomeScreen from './src/screens/WelcomeScreen';
+
+const API = 'http://aerosolgolf.com.dev/api';
 
 const DATA = [
-  { id: 1, text: 'Card #1', uri: 'http://imgs.abduzeedo.com/files/paul0v2/unsplash/unsplash-04.jpg' },
-  { id: 2, text: 'Card #2', uri: 'http://www.fluxdigital.co/wp-content/uploads/2015/04/Unsplash.jpg' },
-  { id: 3, text: 'Card #3', uri: 'http://imgs.abduzeedo.com/files/paul0v2/unsplash/unsplash-09.jpg' },
-  { id: 4, text: 'Card #4', uri: 'http://imgs.abduzeedo.com/files/paul0v2/unsplash/unsplash-01.jpg' },
-  { id: 5, text: 'Card #5', uri: 'http://imgs.abduzeedo.com/files/paul0v2/unsplash/unsplash-04.jpg' },
-  { id: 6, text: 'Card #6', uri: 'http://www.fluxdigital.co/wp-content/uploads/2015/04/Unsplash.jpg' },
-  { id: 7, text: 'Card #7', uri: 'http://imgs.abduzeedo.com/files/paul0v2/unsplash/unsplash-09.jpg' },
-  { id: 8, text: 'Card #8', uri: 'http://imgs.abduzeedo.com/files/paul0v2/unsplash/unsplash-01.jpg' },
+  { id: 1, name: 'Morro Bay Golf Course',
+    uri: 'https://s3-us-west-2.amazonaws.com/aerosolgolf.com/assets/images/morro-bay-golf-course.png' },
+  { id: 2, name: 'Hunter Ranch Golf Course and Restaurant',
+    uri: 'https://s3-us-west-2.amazonaws.com/aerosolgolf.com/assets/images/hunter-ranch-golf-course-and-restaurant.png' },
+  { id: 3, name: 'Links Golf Course of Paso Robles',
+    uri: 'https://s3-us-west-2.amazonaws.com/aerosolgolf.com/assets/images/links-golf-course-of-paso-robles.png' },
+  { id: 4, name: 'River Oaks Golf Course',
+    uri: 'https://s3-us-west-2.amazonaws.com/aerosolgolf.com/assets/images/river-oaks-golf-course.png' },
+  { id: 5, name: 'Paso Robles Golf Club',
+    uri: 'https://s3-us-west-2.amazonaws.com/aerosolgolf.com/assets/images/paso-robles-golf-club.png' },
 ];
 
-// console.log(DeviceInfo.isTablet());
-
 export default class App extends React.Component {
+
+    async componentDidMount() {
+        console.info('App component mounted.');
+    }
+
     renderCard(item) {
         return (
             <Card
@@ -34,31 +46,25 @@ export default class App extends React.Component {
             </Card>
         );
     }
+    _handlePress = () => {
+        this.props.navigation.navigate('Home');
+    }
 
     render() {
+        // return (
+        //     // <Deck data={DATA} renderCard={this.renderCard} />
+        //     <MapView />
+        // );
         return (
-            // <Deck data={DATA} renderCard={this.renderCard} />
             <View style={styles.container}>
-                <Header
-                    statusBarProps={{ barStyle: 'light-content' }}
-                    centerComponent={{ text: 'Scramble!', style: { color: '#fff' } }}
-                    outerContainerStyles={{ backgroundColor: '#3D6DCC' }}
-                >
-                </Header>
-                <List>
-                    {
-                        DATA.map((item, index) => (
-                            <ListItem
-                                roundAvatar
-                                avatar={{uri:item.uri}}
-                                key={index}
-                                title={item.text}
-                            />
-                        ))
-                    }
-                </List>
+                <Text>View Courses</Text>
             </View>
         );
+        // return (
+        //     <View style={{alignItems: 'center', justifyContent: 'center', flex: 1}}>
+        //         <Text onPress={this._handlePress}>HomeScreen!</Text>
+        //     </View>
+        // )
     }
 }
 
@@ -66,5 +72,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
+        marginTop: 50,
     },
 });
