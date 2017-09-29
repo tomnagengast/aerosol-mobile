@@ -16,7 +16,6 @@ export default class HomeScreen extends React.Component {
     navigationOptions = ({navigation}) => ({
         title: 'Home',
         header: ({ navigate }) => {
-            console.log({navigate});
             return {
                 right: <Text>Go Right</Text>
             };
@@ -24,12 +23,10 @@ export default class HomeScreen extends React.Component {
     });
 
     onCarouselEnd = () => {
-        console.log('navigating to `auth`');
         this.props.navigation.navigate('Auth')
     }
 
     render() {
-        console.log(this.props.navigation);
         return (
             <View style={styles.container}>
                 <Carousel

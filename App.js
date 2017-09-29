@@ -29,14 +29,11 @@ export default class App extends React.Component {
             },
         });
         return (
-            // <HomeScreen onPress={this._handlePress} />
-            <MainNavigator />
+            <Provider store={store}>
+                <MainNavigator />
+            </Provider>
         );
     }
-
-    // _handlePress = () => {
-    //     this.props.navigation.navigate('Home');
-    // }
 }
 
 const styles = StyleSheet.create({
