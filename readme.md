@@ -11,3 +11,7 @@ Changing components:
 - Render component
 - Update state
 - Component rerenders
+
+App Feature ideas:
+Pick the Course icon:
+- Using [MapBox](https://www.mapbox.com) all the user to choose the default icon for the course view
