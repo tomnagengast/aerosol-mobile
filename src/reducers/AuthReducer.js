@@ -6,7 +6,7 @@ import {
 export default function(state = {}, action) {
     switch (action.type) {
     case LOGIN_SUCCESS:
-        return { token: action.payload };
+        return { token: action.payload.token };
     case LOGIN_FAIL:
         return { token: null };
     default:

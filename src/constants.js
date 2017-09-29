@@ -1,6 +1,8 @@
 //noinspection NpmUsedModulesInstalled
 import Dimensions from 'Dimensions'
 
+const SRV = 'http://aerosolgolf.com.dev/api';
+
 const purple = '#34314c'
 const blue   = 'rgb(133, 187, 220)'
 const yellow = '#ffc952'

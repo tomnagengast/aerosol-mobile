@@ -1,8 +1,11 @@
 import React from 'react';
-import { Text, View, Dimensions } from 'react-native';
+import { Text, View, Dimensions, ActivityIndicator } from 'react-native';
 import { Card, Header, Button, List, ListItem } from 'react-native-elements'
+import { connect } from 'react-redux';
+import axios from 'axios';
 
 import Carousel from './../components/Carousel';
+import * as actions from '../actions';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
@@ -12,29 +15,52 @@ const COURSES = [
         { id: 3, text: 'Morro', color: '#03A9F4' },
 ]
 
-export default class HomeScreen extends React.Component {
+class HomeScreen extends React.Component {
     navigationOptions = ({navigation}) => ({
         title: 'Home',
-        header: ({ navigate }) => {
-            return {
-                right: <Text>Go Right</Text>
-            };
-        }
     });
+
+    state = {
+        courses: {
+            loaded: false,
+            course: null,
+            index: [
+
+            ],
+        }
+    }
+
+    componentDidMount() {
+        this.props.indexCourses();
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({ courses: { ...nextProps.courses, loaded: true },  });
+    }
 
     onCarouselEnd = () => {
         this.props.navigation.navigate('Auth')
     }
 
     render() {
+
+        if (!this.props.courses.index) {
+            return (
+                <View style={{ flex: 1, justifyContent: 'center' }}>
+                    <ActivityIndicator size="large" />
+                </View>
+            );
+        }
+
         return (
             <View style={styles.container}>
                 <Carousel
-                    data={COURSES}
+                    data={this.props.courses.index}
+                    loaded={this.props.courses.loaded}
                     onComplete={this.onCarouselEnd}
                 />
                 <View style={styles.container}>
-                    <Text>Heyooo!! Home Screen!</Text>
+                    <Text>Heyooo!! Home Screen! {this.state.courses.loaded ? 'yep!' : 'nope.'}</Text>
                     <Button
                         title='Settings'
                         style={styles.button}
@@ -56,3 +82,9 @@ const styles = {
         backgroundColor: 'red',
     }
 }
+
+function mapStateToProps(state) {
+    return { ...state };
+}
+
+export default connect(mapStateToProps, actions)(HomeScreen);

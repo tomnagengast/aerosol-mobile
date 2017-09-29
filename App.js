@@ -13,24 +13,32 @@ import SettingsScreen from './src/screens/SettingsScreen';
 import WelcomeScreen from './src/screens/WelcomeScreen';
 import HomeScreen from './src/screens/HomeScreen';
 
-const api = 'http://aerosolgolf.com.dev/api';
+window.axios = require('axios');
+
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios.defaults.baseURL = 'http://aerosolgolf.com.dev/api/';
 
 export default class App extends React.Component {
     render() {
-        const MainNavigator = TabNavigator({
+        const Router = TabNavigator({
             Home: { screen: HomeScreen },
             Welcome: { screen: WelcomeScreen },
             Auth: { screen: AuthScreen },
             Main: {
                 screen: TabNavigator({
                     Settings: { screen: SettingsScreen },
-                    Map: { screen: SearchScreen },
+                    Search: { screen: SearchScreen },
                 }),
             },
+        }, {
+            navigationOptions: {
+                tabBarVisible: false,
+            },
+            lazy: true,
         });
         return (
-            <Provider store={store}>
-                <MainNavigator />
+            <Provider store={ store }>
+                <Router />
             </Provider>
         );
     }
@@ -44,5 +52,3 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
 });
-
-// Expo.registerRootComponent(App);

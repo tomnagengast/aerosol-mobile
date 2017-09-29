@@ -19,7 +19,11 @@ export default class Carousel extends Component {
     }
 
     renderSlides() {
+        if (!this.props.loaded) return (<View><Text>Loading...</Text></View>);
+
+
         return this.props.data.map((slide, index) => {
+            console.log(slide);
             return (
                 <View
                     key={slide.id}

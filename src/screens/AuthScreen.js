@@ -1,22 +1,27 @@
 import React from 'react';
 import { Text, View, TextInput } from 'react-native';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
+import axios from 'axios';
 
 import {ROW_MARGIN, COLORS, WINDOW_WIDTH} from '../constants'
 
-export default class AuthScreen extends React.Component {
-    constructor (props) {
-        super(props)
-        this.state = {
-            messages:   [],
-            reachable:  false,
-            loading:    false,
-            text:       '',
-            fileAPI:    true,
-            pings:      0
-        }
+class AuthScreen extends React.Component {
+    navigationOptions = { title: 'Auth' };
+
+    componentDidMount() {
+        this.props.login();
     }
 
-    navigationOptions = { title: 'Auth' };
+    componentWillReceiveProps(nextProps) {
+        this.onAuthComplete(nextProps);
+    }
+
+    onAuthComplete(props) {
+        if (props.token) {
+            this.props.navigation.navigate('Search');
+        }
+    }
 
     render() {
         return (
@@ -25,7 +30,7 @@ export default class AuthScreen extends React.Component {
                 <TextInput
                     style={styles.textInput}
                     ref={e => this.textField = e}
-                    value={this.state.text}
+                    value=''
                     onChangeText={text => this.setState({text})}
                     placeholder="Message"
                 >
@@ -54,3 +59,9 @@ const styles = {
         alignSelf:       'center'
     },
 }
+
+function mapStateToProps({ auth }) {
+    return { ...auth };
+}
+
+export default connect(mapStateToProps, actions)(AuthScreen);
