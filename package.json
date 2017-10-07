@@ -1,22 +1,64 @@
 {
-  "name": "Scramble",
-  "version": "1.0.0",
-  "description": "We're not in Kansas anymore.",
-  "author": "Thomas Nagengast",
-  "private": true,
-  "main": "node_modules/expo/AppEntry.js",
-  "dependencies": {
-    "axios": "^0.16.2",
-    "expo": "^21.0.0",
-    "react": "16.0.0-alpha.12",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-21.0.2.tar.gz",
-    "react-native-elements": "^0.17.0",
-    "react-navigation": "^1.0.0-beta.13",
-    "react-redux": "^5.0.6",
-    "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0"
-  },
-  "devDependencies": {
-    "react-devtools": "^2.5.2"
-  }
+    "name": "Scramble",
+    "version": "1.0.0",
+    "description": "We're not in Kansas anymore.",
+    "author": "Thomas Nagengast",
+    "private": true,
+    "main": "node_modules/expo/AppEntry.js",
+    "scripts": {
+        "test": "node_modules/.bin/jest"
+    },
+    "jest": {
+        "preset": "jest-expo",
+        "testMatch": [
+            "IGNORE_TEMPORARILY/**/tests/**/*.js?(x)",
+            "**/__test.js?(x)",
+            "!<rootDir>/tests/bootstrap.js"
+        ],
+        "notify": true,
+        "setupFiles": [
+            "<rootDir>/jest.bootstrap.js"
+        ],
+        "snapshotSerializers": [
+            "<rootDir>/node_modules/enzyme-to-json/serializer"
+        ],
+        "moduleNameMapper": {
+            "^.+\\.(css|scss)$": "identity-obj-proxy"
+        },
+        "roots": [
+            "<rootDir>/src/screens/",
+            "<rootDir>/"
+        ]
+    },
+    "dependencies": {
+        "axios": "^0.16.2",
+        "collect.js": "^3.0.51",
+        "expo": "^21.0.0",
+        "react": "16",
+        "react-native": "https://github.com/expo/react-native/archive/sdk-21.0.2.tar.gz",
+        "react-native-elements": "^0.17.0",
+        "react-navigation": "^1.0.0-beta.13",
+        "react-redux": "^5.0.6",
+        "redux": "^3.7.2",
+        "redux-thunk": "^2.2.0"
+    },
+    "devDependencies": {
+        "babel-eslint": "^8.0.1",
+        "chai": "^4.1.2",
+        "enzyme": "^3.0.0",
+        "enzyme-adapter-react-16": "^1.0.0",
+        "enzyme-to-json": "^3.0.1",
+        "eslint": "^4.8.0",
+        "eslint-config-airbnb-base": "^12.0.1",
+        "eslint-plugin-html": "^3.2.2",
+        "eslint-plugin-import": "^2.7.0",
+        "jest": "^21.2.1",
+        "jest-expo": "^21.0.2",
+        "moxios": "^0.4.0",
+        "react-devtools": "^2.5.2",
+        "react-dom": "16",
+        "react-native-mock": "^0.3.1",
+        "redux-test-utils": "^0.1.3",
+        "sinon": "^4.0.0"
+    }
 }

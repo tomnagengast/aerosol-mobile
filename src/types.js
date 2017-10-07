@@ -4,6 +4,7 @@ export const FETCH_JOBS = 'fetch_jobs';
 export const LIKE_JOB = 'like_job';
 export const CLEAR_LIKED_JOBS = 'clear_liked_jobs';
 export const TEST = 'test';
+export const INIT_HOME = 'init_home';
 
 // API Actions
 export const CREATE_COURSES = 'create_courses';

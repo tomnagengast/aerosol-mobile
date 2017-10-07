@@ -1,17 +1,12 @@
-import { AsyncStorage } from 'react-native';
+/* eslint-disable import/prefer-default-export */
 
-import * as api from '../api';
-import {
-    INDEX_COURSES
-} from './types';
+import { INDEX_COURSES } from '../types';
 
-export const indexCourses = () => async dispatch => {
-    // AsyncStorage.getItem('')
+export const indexCourses = () => async (dispatch) => {
     try {
-        let { data } = await axios.get('courses');
-
+        const { data } = await axios.get('courses');
         dispatch({ type: INDEX_COURSES, payload: data.courses });
-    } catch(e) {
+    } catch (e) {
         console.error(e);
     }
 };

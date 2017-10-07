@@ -1,9 +1,9 @@
 import {
     LOGIN_SUCCESS,
     LOGIN_FAIL,
-} from '../actions/types';
+} from '../types';
 
-export default function(state = {}, action) {
+export default function (state = {}, action) {
     switch (action.type) {
     case LOGIN_SUCCESS:
         return { token: action.payload.token };

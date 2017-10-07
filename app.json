@@ -1,21 +1,26 @@
 {
-  "expo": {
-    "name": "Scramble",
-    "description": "We're not in Kansas anymore",
-    "slug": "scramble",
-    "privacy": "public",
-    "sdkVersion": "21.0.0",
-    "version": "1.0.0",
-    "primaryColor": "#cccccc",
-    "icon": "./assets/icons/project-icon.png",
-    "loading": {
-      "icon": "./assets/icons/project-icon.png"
-    },
-    "packagerOpts": {
-      "assetExts": ["ttf", "mp4"]
-    },
-    "ios": {
-      "supportsTablet": true
+    "expo": {
+        "name": "Scramble",
+        "description": "We're not in Kansas anymore",
+        "slug": "scramble",
+        "privacy": "public",
+        "sdkVersion": "21.0.0",
+        "version": "1.0.0",
+        "primaryColor": "#cccccc",
+        "icon": "./assets/icons/project-icon.png",
+        "loading": {
+            "icon": "./assets/icons/project-icon.png"
+        },
+        "packagerOpts": {
+            "assetExts": [
+                "ttf",
+                "mp4"
+            ]
+        },
+        "ios": {
+            "supportsTablet": true,
+            "bundleIdentifier": "com.self.scramble"
+        },
+        "entryPoint" : "./src/app.js"
     }
-  }
 }

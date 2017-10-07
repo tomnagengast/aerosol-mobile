@@ -1,9 +1,6 @@
-import {
-    GET_COURSES,
-    INDEX_COURSES,
-} from '../actions/types';
+import { GET_COURSES, INDEX_COURSES } from '../types';
 
-export default function(state = {}, action) {
+export default function (state = {}, action) {
     switch (action.type) {
     case GET_COURSES:
         return { course: action.payload };

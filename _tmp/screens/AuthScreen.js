@@ -1,10 +1,10 @@
 import React from 'react';
 import { Text, View, TextInput } from 'react-native';
 import { connect } from 'react-redux';
-import * as actions from '../actions';
+import * as actions from '../../src/actions/index';
 import axios from 'axios';
 
-import {ROW_MARGIN, COLORS, WINDOW_WIDTH} from '../constants'
+import {ROW_MARGIN, COLORS, WINDOW_WIDTH} from '../../src/constants'
 
 class AuthScreen extends React.Component {
     navigationOptions = { title: 'Auth' };

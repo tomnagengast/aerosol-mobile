@@ -2,11 +2,11 @@ import { AsyncStorage } from 'react-native';
 import axios from 'axios';
 
 import * as api from '../api';
-import { SRV } from '../constants';
+import { SRV } from '../bootstrap';
 import {
     LOGIN_SUCCESS,
     LOGIN_FAIL
-} from './types';
+} from '../types';
 
 // How to use AsyncStorage:
 // AsyncStorage.setItem('token', token);
